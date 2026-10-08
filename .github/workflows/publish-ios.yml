@@ -1,0 +1,50 @@
+name: Publish verified iPhone IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths: ['.github/workflows/publish-ios.yml']
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download the successful iPhone build
+        uses: actions/download-artifact@v4
+        with:
+          name: Boddflix-iPhone-unsigned
+          run-id: 37747613481
+          repository: ${{ github.repository }}
+          github-token: ${{ github.token }}
+          path: dist
+      - name: Verify the IPA checksum
+        run: |
+          cd dist
+          sha256sum --check Boddflix-unsigned.ipa.sha256
+      - name: Publish Boddflix iPhone release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > RELEASE-NOTES.txt <<'NOTES'
+          Boddflix 1.9.2 for iPhone, built with Xcode 26.6.
+
+          Requires iOS 15 or later. Contains a compiled arm64 iPhone app.
+          All 8 JavaScript adapter tests passed. Playback on a physical iPhone has not been tested.
+
+          The IPA is unsigned. Use AltStore Classic on Windows to sign and install it with your own Apple Account.
+          Windows setup: https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows
+
+          Download Boddflix-unsigned.ipa. The .sha256 file is a checksum, not the app.
+          NOTES
+          gh release create ios-v1.9.2 \
+            dist/Boddflix-unsigned.ipa dist/Boddflix-unsigned.ipa.sha256 \
+            --repo "$GITHUB_REPOSITORY" \
+            --target c23ece1cc7f364a209ca6734f0af3afa69f18c28 \
+            --title "Boddflix for iPhone 1.9.2" \
+            --notes-file RELEASE-NOTES.txt
