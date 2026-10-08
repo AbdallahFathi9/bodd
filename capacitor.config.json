@@ -1,0 +1,10 @@
+{
+  "appId": "com.boddflix.ios",
+  "appName": "Boddflix",
+  "webDir": "www",
+  "ios": {
+    "backgroundColor": "#07111f",
+    "allowsLinkPreview": false,
+    "preferredContentMode": "mobile"
+  }
+}

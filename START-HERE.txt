@@ -1,0 +1,18 @@
+BODDFLIX FOR IPHONE — READ FIRST
+
+This ZIP contains source code. It does not contain a compiled IPA yet.
+
+ON WINDOWS:
+1. Extract the ZIP.
+2. Upload the contents of Boddflix-iOS to the root of a private GitHub repository.
+   Include .github/workflows/build-ios.yml.
+3. Actions > Build iPhone IPA > Run workflow.
+4. Download and extract Boddflix-iPhone-unsigned after a successful build.
+5. Install the resulting Boddflix-unsigned.ipa with AltStore Classic on Windows.
+
+Full instructions, limitations and official links: README.md
+Arabic instructions: INSTALL-AR.md
+No Apple password or signing certificate is needed to run the unsigned cloud build.
+Enter your Apple Account only in your local installation tool when signing.
+
+Prepared and checked on Linux. A macOS/Xcode build and real iPhone test are still required.

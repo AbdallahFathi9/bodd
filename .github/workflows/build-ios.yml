@@ -1,0 +1,50 @@
+name: Build iPhone IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'www/**'
+      - 'src/**'
+      - 'native/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'capacitor.config.json'
+      - '.github/workflows/build-ios.yml'
+
+concurrency:
+  group: boddflix-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 35
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned build dependencies
+        run: npm install --no-audit --no-fund
+      - name: Check iPhone adapter
+        run: npm test
+      - name: Build unsigned iPhone application and IPA
+        run: bash scripts/build_ipa.sh
+      - name: Upload IPA and checksum
+        uses: actions/upload-artifact@v4
+        with:
+          name: Boddflix-iPhone-unsigned
+          path: |
+            dist/Boddflix-unsigned.ipa
+            dist/Boddflix-unsigned.ipa.sha256
+          if-no-files-found: error
+          retention-days: 14

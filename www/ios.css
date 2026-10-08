@@ -1,0 +1,14 @@
+/* Keep controls and dialogs clear of the iPhone notch and home indicator. */
+html { -webkit-text-size-adjust: 100%; }
+body { padding: 0; }
+.setup { padding-top: max(22px, env(safe-area-inset-top)); padding-bottom: max(22px, env(safe-area-inset-bottom)); }
+#library header { padding-top: max(10px, env(safe-area-inset-top)); padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+#library footer { display: none; }
+#library .layout, .homeScreen { padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+#playerControls { padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+#revealControls { right: max(14px, env(safe-area-inset-right)); top: max(14px, env(safe-area-inset-top)); }
+#upNext { top: max(14px, env(safe-area-inset-top)); right: max(14px, env(safe-area-inset-right)); }
+.modal { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+.modal > div { max-height: calc(90dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+#player.mini { bottom: max(14px, env(safe-area-inset-bottom)); }
+#loginFullscreen, #windowFullscreen, #multiviewButton, #homeMultiview { display: none !important; }

@@ -1,0 +1,12 @@
+@media(max-width:1500px){html,body{font-size:18px}header{height:84px;padding:14px 24px;gap:12px}.brand{font-size:26px;margin-right:8px}nav{gap:8px}nav button{padding:10px 14px}header>button{padding:10px 14px}button,input{padding:12px 16px;min-height:44px}.layout{height:calc(100vh - 132px)}aside{width:255px;padding:20px}.catalog{padding:22px 28px}.heading h1{font-size:32px}.heading input{width:280px}#groups{gap:6px}#groups button{font-size:17px;min-height:40px;padding:9px 12px}#cards{height:calc(100% - 170px)}.card{min-height:115px;padding:15px}.card .name{font-size:18px}.card .meta{font-size:14px}.card .tile{width:34px;height:34px;line-height:34px;font-size:18px}footer{height:48px;padding:14px 24px;font-size:14px}.intro h1{font-size:52px}.intro>p:not(.small){font-size:40px}.login{padding:26px}.login h2{font-size:27px}.login label:not(.check){margin:12px 0 8px}.small{font-size:16px}.check{font-size:15px}.pills{font-size:16px}.playerButtons{gap:10px}.playerButtons button{font-size:17px}.heading .eyebrow{font-size:15px}}
+
+.cardWrap{position:relative}.cardWrap>.card{width:100%;height:100%}.quickFavorite{position:absolute;right:12px;top:10px;padding:4px 10px;min-height:34px;color:#ffd075;background:#152c46;font-size:20px}.cardWrap .star{display:none}
+
+@media(max-width:1500px){#player.mini{top:108px;right:20px}.hasMini .catalog{padding-right:calc(27vw + 22px)}header{gap:8px}header>button{font-size:16px;padding:10px}.brand{font-size:24px}nav button{padding:10px 12px;font-size:17px}}
+
+header{height:auto}#library .layout{height:auto}.cardWrap .nowNext{padding-right:8px}[dir="rtl"] .quickFavorite{right:auto;left:12px}
+
+@media(max-width:1500px){.login label:not(.check){margin:8px 0 6px}.login h2{margin-bottom:14px}.login>p{margin-bottom:14px}}
+
+#revealControls{display:none;position:absolute;right:20px;bottom:20px;z-index:24;font-size:16px;min-height:44px;padding:10px 18px;background:#122238dd;color:#fff;border:1px solid #84c7ff}
+#player.controlsHidden:not(.mini) #revealControls{display:block}.nativePip #revealControls{display:none!important}

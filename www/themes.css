@@ -1,0 +1,23 @@
+/* Device preferences are independent of provider accounts. */
+:root{--surface:#080d24;--panel:#121a36;--control:#192646;--edge:#354669;--accent:#83bcff;--selected:#254d96;--glow:#222657}
+:root[data-theme="ocean"]{--surface:#031a27;--panel:#082e40;--control:#0d3d50;--edge:#326879;--accent:#77e5f7;--selected:#086782;--glow:#075265}
+:root[data-theme="violet"]{--surface:#190d29;--panel:#2a183e;--control:#3b2254;--edge:#71538a;--accent:#ddb3ff;--selected:#704499;--glow:#552970}
+:root[data-theme="emerald"]{--surface:#051e19;--panel:#0d322a;--control:#164638;--edge:#3b7663;--accent:#91f2c3;--selected:#226b51;--glow:#20563f}
+html,body,#library{background:var(--surface);color:#f4f7ff}
+.setup{background:radial-gradient(ellipse at 20% 20%,var(--glow),var(--surface) 70%)}
+header,footer,aside,.login,.modal>div,#miniControls{background:var(--panel);border-color:var(--edge)}
+#homeScreen{background:radial-gradient(ellipse at 50% 0%,var(--glow),var(--surface) 75%)}
+button,input,select,textarea,.card{background-color:var(--control);border-color:var(--edge);color:#f4f7ff}
+button.active,button.primary,.resumeButton{background:var(--selected);border-color:var(--accent)}
+button:focus,input:focus,select:focus,textarea:focus{outline-color:var(--accent)}
+button:focus{background-color:var(--selected)}
+.brand span,.loginBrand span,.eyebrow,.message{color:var(--accent)}
+aside{width:410px}#groups button{white-space:normal;overflow-wrap:anywhere;text-overflow:clip;text-align:start;line-height:1.4;height:auto;flex-shrink:0}
+aside #customFilter{white-space:normal;overflow-wrap:anywhere}
+.finishedBadge{display:block;width:fit-content;margin-top:10px;padding:5px 10px;border-radius:7px;background:#164c36;color:#bcffdb;font-size:16px;font-weight:bold}
+@media(max-width:1500px){aside{width:330px}.finishedBadge{font-size:14px}}
+@media(max-width:1200px){aside{width:300px}.hasMini #cards,html[data-text-size="large"] .hasMini #cards{grid-template-columns:minmax(0,1fr)}}
+#library header,#library aside{background:var(--panel);border-color:var(--edge)}
+#library .card{background:var(--control);border-color:var(--edge)}
+#library .card:focus,#library .resumeButton,.login button.primary{background:var(--selected);border-color:var(--accent)}
+.homeContinue{background:var(--panel);border-color:var(--edge)}
