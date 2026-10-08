@@ -1,8 +1,14 @@
-# Boddflix for iPhone — source project
+# Boddflix for iPhone
 
-This package prepares Boddflix 1.9.2 for iPhone. **It is a source project, not an installable IPA.** It includes a manual GitHub Actions workflow that compiles the app on a Mac runner and creates `Boddflix-unsigned.ipa`. The IPA must then be signed before it can run on an iPhone.
+Boddflix 1.9.2 is now built for iPhone. **[Download the compiled IPA](https://github.com/AbdallahFathi9/bodd/releases/download/ios-v1.9.2/Boddflix-unsigned.ipa).** It requires iOS 15 or later. The IPA is unsigned; use AltStore Classic on Windows to sign and install it with your own Apple Account.
 
-The project was prepared on Linux. JavaScript and packaging checks were run here; Xcode compilation, native plugin execution, fullscreen, PiP, and playback on a real iPhone have **not** been verified. The first cloud build is the remaining compilation check.
+This repository contains the source and macOS build workflow. Code changes pushed to `master` trigger a new IPA build; the workflow can also be started manually.
+
+The Release build succeeded with Xcode 26.6, and all 8 JavaScript adapter tests passed. The IPA was checked for its SHA-256 checksum, arm64 iPhone executable, bundle identity, and included web/native bridge assets. **Playback, Keychain account storage, fullscreen and PiP still require testing on a physical iPhone.**
+
+Successful build: https://github.com/AbdallahFathi9/bodd/actions/runs/37747613481
+
+Release and checksum: https://github.com/AbdallahFathi9/bodd/releases/tag/ios-v1.9.2
 
 ## Generate the IPA from Windows
 
